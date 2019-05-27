@@ -12,7 +12,15 @@ RBCSystem::SolverType::SolverType(const Real &Prandtl_number, const Real &Raylei
 }
 
 RBCSystem::SolverType::SolverType(const SolverType &rhs):
-        l(rhs.l), Pr(rhs.Pr), Ra(rhs.Ra), a(rhs.a), f(rhs.f), t(rhs.t), observer(l, Pr, Ra, a) { return; }
+        l(rhs.l), Pr(rhs.Pr), Ra(rhs.Ra), a(rhs.a), f(), t(), observer(l, Pr, Ra, a)
+{
+    f[0] = rhs.f[0];
+    f[1] = rhs.f[1];
+    t[0] = rhs.t[0];
+    t[1] = rhs.t[1];
+
+    return;
+}
 
 RBCSystem::SolverType & RBCSystem::SolverType::operator=(const SolverType &rhs)
 {
@@ -20,8 +28,10 @@ RBCSystem::SolverType & RBCSystem::SolverType::operator=(const SolverType &rhs)
     Pr = rhs.Pr;
     Ra = rhs.Ra;
     a = rhs.a;
-    f = rhs.f;
-    t = rhs.t;
+    f[0] = rhs.f[0];
+    f[1] = rhs.f[1];
+    t[0] = rhs.t[0];
+    t[1] = rhs.t[1];
 
     return *this;
 }
@@ -31,8 +41,6 @@ RBCSystem::SolverType::~SolverType(void) { return; }
 void RBCSystem::SolverType::evaluate(void)
 {
     using namespace boost::numeric::odeint;
-
-    Uint j;
 
     f[1] = f[0];
     integrate_adaptive(make_controlled<runge_kutta_dopri5<StateType>>(1e-10, 1e-6), boost::ref(*this), f[1], t[0], t[1], 0.01, observer);

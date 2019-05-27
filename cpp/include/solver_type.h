@@ -6,7 +6,6 @@
 #ifndef SOLVER_TYPE_H
 #define SOLVER_TYPE_H
 
-#include <boost/array.hpp>
 #include <boost/numeric/odeint.hpp>
 #include <boost/ref.hpp>
 #include <boost/math/special_functions.hpp>
@@ -70,8 +69,8 @@ namespace RBCSystem {
     private:
         Uint l;
         Real Pr, Ra, a;
-        boost::array<StateType, 2> f;
-        boost::array<Real, 2> t;
+        StateType f[2];
+        Real t[2];
         ObserverType observer;
     };
 

@@ -1,0 +1,8 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/opt/intel/bin/icc -DCMAKE_CXX_COMPILER=/opt/intel/bin/icpc -G "CodeBlocks - Unix Makefiles" /home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp
+-- Boost version: 1.69.0
+-- Found the following Boost libraries:
+--   program_options
+-- HDF5: Using hdf5 compiler wrapper to determine CXX configuration
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug

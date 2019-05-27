@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/def.h
+string
+-
+
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/state_type.h
+exception
+-
+boost/numeric/ublas/vector.hpp
+-
+H5Cpp.h
+-
+def.h
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/def.h
+utils.h
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/utils.h
+
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/utils.h
+boost/math/constants/constants.hpp
+-
+H5Cpp.h
+-
+def.h
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/def.h
+
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/src/state_type.cpp
+../include/state_type.h
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/include/state_type.h
+

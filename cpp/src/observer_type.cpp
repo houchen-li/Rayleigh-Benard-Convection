@@ -9,25 +9,18 @@ RBCSystem::ObserverType::ObserverType(Uint &l, Real &Pr, Real &Ra, Real &a) : l(
     FILE *fp = fopen("Nu.dat", "w");
 
     fprintf(fp, "************************\n");
-    fprintf(fp, "%s\t%lf\n", "Prandtl_number", Pr);
-    fprintf(fp, "%s\t%lf\n", "Rayleigh_number", Ra);
-    fprintf(fp, "%s\t%lf\n", "wave_number", a);
+    fprintf(fp, "%s\t%lf\n", "Prandtl_number", this -> Pr);
+    fprintf(fp, "%s\t%lf\n", "Rayleigh_number", this -> Ra);
+    fprintf(fp, "%s\t%lf\n", "wave_number", this -> a);
     fprintf(fp, "************************\n");
-    fprintf(fp, "t\tNu\n");
-    fprintf(fp, "************************\n");
-    fclose(fp);
-
-    return;
-}
-
-RBCSystem::ObserverType::~ObserverType(void)
-{
-    FILE *fp = fopen("Nu.dat", "a");
+    fprintf(fp, "t\t\tNu\n");
     fprintf(fp, "************************\n");
     fclose(fp);
 
     return;
 }
+
+RBCSystem::ObserverType::~ObserverType(void) { return; }
 
 void RBCSystem::ObserverType::operator()(const RBCSystem::StateType &f, const Real &t)
 {

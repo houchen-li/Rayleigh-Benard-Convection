@@ -14,6 +14,8 @@ constexpr Real PI = boost::math::constants::pi<Real>();
 
 constexpr Real PI_2 = PI*PI;
 
+constexpr Real PI_4 = PI*PI;
+
 Real Power(const Real &val, const Uint &p);
 
 void addAttr(H5::H5Object &h5obj, const String &attr_name, const Uint &val);
