@@ -42,16 +42,18 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
             for (k = j + 2 - i % 2; k < 2 * RBCSystem::Ny + 2; k += 2)
                 sum -= k * f.phi(k) * f.psi(i, k - j);
             dfdt.theta(i, j) -= PI_2 * a * i * sum;
-            dfdt.psi(i, j) = 2.0 * PI * a * i * Pr * Ra / laplacian * f.theta(i, j) - laplacian * Pr * f.psi(i, j);
         }
     }
-    for (j = 3; j < 2*RBCSystem::Ny + 1; j += 2) {
-        dfdt.psi(1, j) =
-                PI_4 * a / 2.0 * f.psi(1, 1) * (-(16.0 * a * a + (j + 1) * (j + 1)) * (j - 1) * f.psi(2, j + 1) -
-                                                (16.0 * a * a + (j - 1) * (j - 1)) * (j + 1) * f.psi(2, j - 1) -
-                                                (4.0 * a * a + 1) *
-                                                ((j - 1) * f.psi(2, j + 1) + (j + 1) * f.psi(2, j - 1)));
-    }
+
+    for (i = 1; i < RBCSystem::Nx+1; i++)
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
+            laplacian = (4 * a * a * i * i + j * j) * PI_2;
+            dfdt.psi(i, j) = 2.0 * PI * a * i * Pr * Ra / laplacian * f.theta(i, j) - laplacian * Pr * f.psi(i, j);
+        }
+    for (i = 1; i < RBCSystem::Nx; i++)
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2)
+            dfdt.psi(i, 2 - i % 2) += PI_4*a/2*f.psi(1, 1)*f.psi(i+1, j+1)*(4*a*a*((i+1)*(i+1)-1)+(j+1)*(j+1)-1)*(j-i);
+
 
     return;
 };
