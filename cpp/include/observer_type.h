@@ -21,6 +21,10 @@ namespace RBCSystem {
 
         ~ObserverType(void);
 
+        void startObservation(void);
+
+        void endObservation(void);
+
         void operator()(const StateType &f, const Real &t);
 
     private:

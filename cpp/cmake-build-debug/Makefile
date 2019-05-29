@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named herring_model
+# Target rules for targets named lhc_model
 
 # Build rule for target.
-herring_model: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 herring_model
-.PHONY : herring_model
+lhc_model: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lhc_model
+.PHONY : lhc_model
 
 # fast build rule for target.
-herring_model/fast:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/build
-.PHONY : herring_model/fast
+lhc_model/fast:
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/build
+.PHONY : lhc_model/fast
 
-programs/herring_model.o: programs/herring_model.cpp.o
+programs/lhc_model.o: programs/lhc_model.cpp.o
 
-.PHONY : programs/herring_model.o
+.PHONY : programs/lhc_model.o
 
 # target to build an object file
-programs/herring_model.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/programs/herring_model.cpp.o
-.PHONY : programs/herring_model.cpp.o
+programs/lhc_model.cpp.o:
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/programs/lhc_model.cpp.o
+.PHONY : programs/lhc_model.cpp.o
 
-programs/herring_model.i: programs/herring_model.cpp.i
+programs/lhc_model.i: programs/lhc_model.cpp.i
 
-.PHONY : programs/herring_model.i
+.PHONY : programs/lhc_model.i
 
 # target to preprocess a source file
-programs/herring_model.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/programs/herring_model.cpp.i
-.PHONY : programs/herring_model.cpp.i
+programs/lhc_model.cpp.i:
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/programs/lhc_model.cpp.i
+.PHONY : programs/lhc_model.cpp.i
 
-programs/herring_model.s: programs/herring_model.cpp.s
+programs/lhc_model.s: programs/lhc_model.cpp.s
 
-.PHONY : programs/herring_model.s
+.PHONY : programs/lhc_model.s
 
 # target to generate assembly for a file
-programs/herring_model.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/programs/herring_model.cpp.s
-.PHONY : programs/herring_model.cpp.s
+programs/lhc_model.cpp.s:
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/programs/lhc_model.cpp.s
+.PHONY : programs/lhc_model.cpp.s
 
 src/def.o: src/def.cpp.o
 
@@ -156,7 +156,7 @@ src/def.o: src/def.cpp.o
 
 # target to build an object file
 src/def.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/def.cpp.o
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/def.cpp.o
 .PHONY : src/def.cpp.o
 
 src/def.i: src/def.cpp.i
@@ -165,7 +165,7 @@ src/def.i: src/def.cpp.i
 
 # target to preprocess a source file
 src/def.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/def.cpp.i
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/def.cpp.i
 .PHONY : src/def.cpp.i
 
 src/def.s: src/def.cpp.s
@@ -174,7 +174,7 @@ src/def.s: src/def.cpp.s
 
 # target to generate assembly for a file
 src/def.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/def.cpp.s
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/def.cpp.s
 .PHONY : src/def.cpp.s
 
 src/observer_type.o: src/observer_type.cpp.o
@@ -183,7 +183,7 @@ src/observer_type.o: src/observer_type.cpp.o
 
 # target to build an object file
 src/observer_type.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/observer_type.cpp.o
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/observer_type.cpp.o
 .PHONY : src/observer_type.cpp.o
 
 src/observer_type.i: src/observer_type.cpp.i
@@ -192,7 +192,7 @@ src/observer_type.i: src/observer_type.cpp.i
 
 # target to preprocess a source file
 src/observer_type.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/observer_type.cpp.i
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/observer_type.cpp.i
 .PHONY : src/observer_type.cpp.i
 
 src/observer_type.s: src/observer_type.cpp.s
@@ -201,7 +201,7 @@ src/observer_type.s: src/observer_type.cpp.s
 
 # target to generate assembly for a file
 src/observer_type.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/observer_type.cpp.s
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/observer_type.cpp.s
 .PHONY : src/observer_type.cpp.s
 
 src/solver_type.o: src/solver_type.cpp.o
@@ -210,7 +210,7 @@ src/solver_type.o: src/solver_type.cpp.o
 
 # target to build an object file
 src/solver_type.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/solver_type.cpp.o
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/solver_type.cpp.o
 .PHONY : src/solver_type.cpp.o
 
 src/solver_type.i: src/solver_type.cpp.i
@@ -219,7 +219,7 @@ src/solver_type.i: src/solver_type.cpp.i
 
 # target to preprocess a source file
 src/solver_type.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/solver_type.cpp.i
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/solver_type.cpp.i
 .PHONY : src/solver_type.cpp.i
 
 src/solver_type.s: src/solver_type.cpp.s
@@ -228,7 +228,7 @@ src/solver_type.s: src/solver_type.cpp.s
 
 # target to generate assembly for a file
 src/solver_type.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/solver_type.cpp.s
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/solver_type.cpp.s
 .PHONY : src/solver_type.cpp.s
 
 src/state_type.o: src/state_type.cpp.o
@@ -237,7 +237,7 @@ src/state_type.o: src/state_type.cpp.o
 
 # target to build an object file
 src/state_type.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/state_type.cpp.o
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/state_type.cpp.o
 .PHONY : src/state_type.cpp.o
 
 src/state_type.i: src/state_type.cpp.i
@@ -246,7 +246,7 @@ src/state_type.i: src/state_type.cpp.i
 
 # target to preprocess a source file
 src/state_type.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/state_type.cpp.i
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/state_type.cpp.i
 .PHONY : src/state_type.cpp.i
 
 src/state_type.s: src/state_type.cpp.s
@@ -255,7 +255,7 @@ src/state_type.s: src/state_type.cpp.s
 
 # target to generate assembly for a file
 src/state_type.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/state_type.cpp.s
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/state_type.cpp.s
 .PHONY : src/state_type.cpp.s
 
 src/utils.o: src/utils.cpp.o
@@ -264,7 +264,7 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/utils.cpp.o
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -273,7 +273,7 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/utils.cpp.i
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -282,7 +282,7 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/herring_model.dir/build.make CMakeFiles/herring_model.dir/src/utils.cpp.s
+	$(MAKE) -f CMakeFiles/lhc_model.dir/build.make CMakeFiles/lhc_model.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 # Help Target
@@ -292,11 +292,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... herring_model"
+	@echo "... lhc_model"
 	@echo "... edit_cache"
-	@echo "... programs/herring_model.o"
-	@echo "... programs/herring_model.i"
-	@echo "... programs/herring_model.s"
+	@echo "... programs/lhc_model.o"
+	@echo "... programs/lhc_model.i"
+	@echo "... programs/lhc_model.s"
 	@echo "... src/def.o"
 	@echo "... src/def.i"
 	@echo "... src/def.s"

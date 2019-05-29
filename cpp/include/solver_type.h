@@ -44,11 +44,11 @@ namespace RBCSystem {
 
         inline void wave_number(const Real &wave_number) { a = wave_number; return; }
 
-        inline const RBCSystem::StateType &initial_state(void) const { return f[0]; }
+        inline const RBCSystem::StateType &start_state(void) const { return f[0]; }
 
-        inline void initial_state(const RBCSystem::StateType &initial_state) { f[0] = initial_state; return; }
+        inline void start_state(const RBCSystem::StateType &start_state) { f[0] = start_state; return; }
 
-        inline const RBCSystem::StateType &final_state(void) const { return f[1]; }
+        inline const RBCSystem::StateType &end_state(void) const { return f[1]; }
 
         inline const Real &start_time() const { return t[0]; }
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(herring_model)
+project(lhc_model)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -17,5 +17,5 @@ endif()
 
 include_directories(./include)
 
-add_executable(herring_model programs/herring_model.cpp src/def.cpp src/utils.cpp src/state_type.cpp src/observer_type.cpp src/solver_type.cpp include/herring_func.hpp)
-target_link_libraries(herring_model ${Boost_LIBRARIES} ${HDF5_LIBRARIES})
+add_executable(lhc_model programs/lhc_model.cpp src/def.cpp src/utils.cpp src/state_type.cpp src/observer_type.cpp src/solver_type.cpp include/lhc_func.hpp)
+target_link_libraries(lhc_model ${Boost_LIBRARIES} ${HDF5_LIBRARIES})

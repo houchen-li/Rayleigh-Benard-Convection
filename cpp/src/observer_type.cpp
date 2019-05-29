@@ -4,7 +4,11 @@
 
 #include "../include/observer_type.h"
 
-RBCSystem::ObserverType::ObserverType(Uint &l, Real &Pr, Real &Ra, Real &a) : l(l), Pr(Pr), Ra(Ra), a(a)
+RBCSystem::ObserverType::ObserverType(Uint &l, Real &Pr, Real &Ra, Real &a) : l(l), Pr(Pr), Ra(Ra), a(a) { return; }
+
+RBCSystem::ObserverType::~ObserverType(void) { return; }
+
+void RBCSystem::ObserverType::startObservation(void)
 {
     FILE *fp = fopen("Nu.dat", "w");
 
@@ -20,13 +24,21 @@ RBCSystem::ObserverType::ObserverType(Uint &l, Real &Pr, Real &Ra, Real &a) : l(
     return;
 }
 
-RBCSystem::ObserverType::~ObserverType(void) { return; }
+void RBCSystem::ObserverType::endObservation(void)
+{
+    FILE *fp = fopen("Nu.dat", "a");
+    fprintf(fp, "************************\n");
+    fclose(fp);
+
+    return;
+}
 
 void RBCSystem::ObserverType::operator()(const RBCSystem::StateType &f, const Real &t)
 {
     Uint j;
     Real Nu;
     FILE *fp = fopen("Nu.dat", "a");
+    H5::Group grp, subgrp;
     H5::DataSet dset;
 #ifdef OBSERVE_STATES
     H5::H5File outf(std::to_string(l)+".h5", H5F_ACC_TRUNC);
@@ -37,15 +49,23 @@ void RBCSystem::ObserverType::operator()(const RBCSystem::StateType &f, const Re
     Nu = Nuof(f);
     fprintf(fp, "%8lf\t%8lf\n", t, Nu);
     fclose(fp);
-    f.saveFile(outf, "data");
-    dset = outf.openDataSet("data");
+    grp = outf.createGroup("group");
+    addAttr(grp, "Nx", Nx);
+    addAttr(grp, "Ny", Ny);
+    addAttr(grp, "length", l);
+    addAttr(grp, "Prandtl_number", Pr);
+    addAttr(grp, "Rayleigh_number", Ra);
+    addAttr(grp, "wave_number", a);
+    subgrp = grp.createGroup("states");
+    f.saveFile(subgrp, "1");
+    dset = subgrp.openDataSet("1");
     addAttr(dset, "t", t);
     addAttr(dset, "Nu", Nu);
     dset.close();
+    subgrp.close();
+    grp.close();
     outf.close();
     l++;
 
     return;
 }
-
-

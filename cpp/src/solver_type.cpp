@@ -43,7 +43,9 @@ void RBCSystem::SolverType::evaluate(void)
     using namespace boost::numeric::odeint;
 
     f[1] = f[0];
+    observer.startObservation();
     integrate_adaptive(make_controlled<runge_kutta_dopri5<StateType>>(1e-10, 1e-6), boost::ref(*this), f[1], t[0], t[1], 0.01, observer);
+    observer.endObservation();
 
 	return;
 }

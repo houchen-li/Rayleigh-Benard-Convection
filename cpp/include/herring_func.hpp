@@ -10,15 +10,14 @@
 #include "utils.h"
 #include "state_type.h"
 
-void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real &t, const Real &Pr, const Real &Ra, const Real &a)
-{
+void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real &t, const Real &Pr, const Real &Ra, const Real &a) {
     Uint i, j, k;
-    Real laplacian, sum;
+    Real sum;
 
-    for (j = 2; j < 2*RBCSystem::Ny+2; j+=2) {
+    for (j = 2; j < 2 * RBCSystem::Ny + 2; j += 2) {
         dfdt.phi(j) = -(j * j * PI_2 * f.phi(j));
     }
-    for (i = 1; i < RBCSystem::Nx+1; i++) {
+    for (i = 1; i < RBCSystem::Nx + 1; i++) {
         for (j = 2; j < 2 * RBCSystem::Ny + 2; j += 2) {
             sum = 0.0;
             for (k = 2 - i % 2; k < 2 * RBCSystem::Ny + 2 - i % 2 - j; k += 2)
@@ -30,10 +29,10 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
             dfdt.phi(j) += (j / 2) * PI_2 * a * i * sum;
         }
     }
-    for (i = 1; i < RBCSystem::Nx+1; i++) {
+
+    for (i = 1; i < RBCSystem::Nx + 1; i++) {
         for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
-            laplacian = (4 * a * a * i * i + j * j) * PI_2;
-            dfdt.theta(i, j) = 2.0 * PI * a * i * f.psi(i, j) - laplacian * f.theta(i, j);
+            dfdt.theta(i, j) = 2.0 * PI * a * i * f.psi(i, j) - (4 * a * a * i * i + j * j) * PI_2 * f.theta(i, j);
             sum = 0.0;
             for (k = 2; k < 2 * RBCSystem::Ny + 2 - i % 2 - j; k += 2)
                 sum += k * f.phi(k) * f.psi(i, j + k);
@@ -45,15 +44,30 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
         }
     }
 
-    for (i = 1; i < RBCSystem::Nx+1; i++)
-        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
-            laplacian = (4 * a * a * i * i + j * j) * PI_2;
-            dfdt.psi(i, j) = 2.0 * PI * a * i * Pr * Ra / laplacian * f.theta(i, j) - laplacian * Pr * f.psi(i, j);
-        }
-    for (i = 1; i < RBCSystem::Nx; i++)
+    for (i = 1; i < RBCSystem::Nx + 1; i++)
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2)
+            dfdt.psi(i, j) = 2.0 * PI * a * i * Pr * Ra / (4 * a * a * i * i + j * j) * PI_2 * f.theta(i, j) -
+                             (4 * a * a * i * i + j * j) * PI_2 * Pr * f.psi(i, j);
+    /*for (i = 1; i < RBCSystem::Nx; i++) {
         for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2)
-            dfdt.psi(i, 2 - i % 2) += PI_4*a/2*f.psi(1, 1)*f.psi(i+1, j+1)*(4*a*a*((i+1)*(i+1)-1)+(j+1)*(j+1)-1)*(j-i);
-
+            dfdt.psi(i, j) -= PI_2 * a / 2 * f.psi(1, 1) * f.psi(i + 1, j + 1) *
+                              (4 * a * a * ((i + 1) * (i + 1) - 1) + (j + 1) * (j + 1) - 1) * ((Real) i - (Real) j) /
+                              (4 * a * a * i * i + j * j);
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2)
+            dfdt.psi(i, j) -= PI_2 * a / 2 * f.psi(1, 1) * f.psi(i + 1, j - 1) *
+                              (4 * a * a * ((i + 1) * (i + 1) - 1) + (j - 1) * (j - 1) - 1) * (i + j) /
+                              (4 * a * a * i * i + j * j);
+    }
+    for (i = 2; i < RBCSystem::Nx + 1; i++) {
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2)
+            dfdt.psi(i, j) += PI_2 * a / 2 * f.psi(1, 1) * f.psi(i - 1, j - 1) *
+                              (4 * a * a * ((i - 1) * (i - 1) - 1) + (j - 1) * (j - 1) - 1) * ((Real) i - (Real) j) /
+                              (4 * a * a * i * i + j * j);
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2)
+            dfdt.psi(i, j) += PI_2 * a / 2 * f.psi(1, 1) * f.psi(i - 1, j + 1) *
+                              (4 * a * a * ((i - 1) * (i - 1) - 1) + (j + 1) * (j + 1) - 1) * (i + j) /
+                              (4 * a * a * i * i + j * j);
+    }*/
 
     return;
 };

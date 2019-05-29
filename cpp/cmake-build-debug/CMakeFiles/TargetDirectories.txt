@@ -1,3 +1,3 @@
 /home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug/CMakeFiles/herring_model.dir
+/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug/CMakeFiles/lhc_model.dir
 /home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir

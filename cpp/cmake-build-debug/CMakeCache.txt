@@ -152,7 +152,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=herring_model
+CMAKE_PROJECT_NAME:STATIC=lhc_model
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -241,6 +241,24 @@ HDF5_DIFF_EXECUTABLE:FILEPATH=/usr/bin/h5diff
 //The directory containing a CMake configuration file for HDF5.
 HDF5_DIR:PATH=HDF5_DIR-NOTFOUND
 
+//CXX compiler flags for OpenMP parallelization
+OpenMP_CXX_FLAGS:STRING=-qopenmp
+
+//CXX compiler libraries for OpenMP parallelization
+OpenMP_CXX_LIB_NAMES:STRING=iomp5;pthread
+
+//C compiler flags for OpenMP parallelization
+OpenMP_C_FLAGS:STRING=-qopenmp
+
+//C compiler libraries for OpenMP parallelization
+OpenMP_C_LIB_NAMES:STRING=iomp5;pthread
+
+//Path to the iomp5 library for OpenMP
+OpenMP_iomp5_LIBRARY:FILEPATH=/opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64_lin/libiomp5.so
+
+//Path to the pthread library for OpenMP
+OpenMP_pthread_LIBRARY:FILEPATH=/usr/lib64/libpthread.so
+
 //Path to a program.
 ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf
 
@@ -255,6 +273,12 @@ herring_model_BINARY_DIR:STATIC=/home/houchen_li/Projects/Rayleigh-Benard-Convec
 
 //Value Computed by CMake
 herring_model_SOURCE_DIR:STATIC=/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp
+
+//Value Computed by CMake
+lhc_model_BINARY_DIR:STATIC=/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp/cmake-build-debug
+
+//Value Computed by CMake
+lhc_model_SOURCE_DIR:STATIC=/home/houchen_li/Projects/Rayleigh-Benard-Convection/cpp
 
 
 ########################
@@ -412,6 +436,10 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding HDF5
 FIND_PACKAGE_MESSAGE_DETAILS_HDF5:INTERNAL=[/usr/lib/libhdf5_cpp.so;/usr/lib/libhdf5.so;/usr/lib/libsz.so;/usr/lib/libz.so;/usr/lib/libdl.so;/usr/lib/libm.so][cfound components:  CXX ][v1.10.5()]
+//Details about finding OpenMP
+FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][cfound components:  CXX ][v()]
+//Details about finding OpenMP_CXX
+FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX:INTERNAL=[-qopenmp][/opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64_lin/libiomp5.so][/usr/lib64/libpthread.so][v()]
 //ADVANCED property for variable: HDF5_CXX_COMPILER_EXECUTABLE
 HDF5_CXX_COMPILER_EXECUTABLE-ADVANCED:INTERNAL=1
 //Result of TRY_COMPILE
@@ -420,6 +448,26 @@ HDF5_CXX_COMPILER_NO_INTERROGATE:INTERNAL=FALSE
 HDF5_DIFF_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: HDF5_DIR
 HDF5_DIR-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+OpenMP_COMPILE_RESULT_CXX_qopenmp:INTERNAL=TRUE
+//Result of TRY_COMPILE
+OpenMP_COMPILE_RESULT_C_qopenmp:INTERNAL=TRUE
+//ADVANCED property for variable: OpenMP_CXX_FLAGS
+OpenMP_CXX_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenMP_CXX_LIB_NAMES
+OpenMP_CXX_LIB_NAMES-ADVANCED:INTERNAL=1
+//CXX compiler's OpenMP specification date
+OpenMP_CXX_SPEC_DATE:INTERNAL=201611
+//ADVANCED property for variable: OpenMP_C_FLAGS
+OpenMP_C_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenMP_C_LIB_NAMES
+OpenMP_C_LIB_NAMES-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+OpenMP_SPECTEST_CXX_:INTERNAL=TRUE
+//ADVANCED property for variable: OpenMP_iomp5_LIBRARY
+OpenMP_iomp5_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenMP_pthread_LIBRARY
+OpenMP_pthread_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_getconf
 ProcessorCount_cmd_getconf-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
