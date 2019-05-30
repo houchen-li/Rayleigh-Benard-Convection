@@ -45,7 +45,7 @@ class FieldType:
         self.Ny = inf[h5grp_name].attrs["Ny"]
         self.l = inf[h5grp_name].attrs["length"]
         self.f = np.asarray(
-            inf["{0:s}/states/{1:d}".format(h5grp_name, int(self.l-1))], dtype=np.float)
+            inf["{0:s}/states/1".format(h5grp_name)], dtype=np.float)
         return
 
     def initialize(self, x, y):
@@ -82,7 +82,7 @@ class FieldType:
         self._v = np.transpose(np.sum(amps*2.0*np.pi*self._mmmm*np.cos(2.0*np.pi*self.a *
                                                                        self._mmmm*self._xxxx)*np.sin(np.pi*self._nnnn*self._yyyy), axis=(2, 3)))
         self._speed = np.sqrt(self._u*self._u + self._v*self._v)
-        self._temperature = self.Ra*(1-self._yy)+self._phi+self._theta
+        self._temperature = 1-self._yy+self._phi+self._theta
         return
 
     def plotFigures(self, component=None):
@@ -165,7 +165,7 @@ def main():
     components = ["psi", "velocity", "vorticity",
                   "temperature"]
     s = FieldType()
-    with h5.File("data.h5", "r") as inf:
+    with h5.File("current_state.h5", "r") as inf:
         s.loadFile(inf, "/group")
     s.initialize(x, y)
     s.evaluate()

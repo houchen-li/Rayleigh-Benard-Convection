@@ -12,23 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b738d05-11f7-41a3-b131-dfe45a174682" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/herring_model" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/herring_func.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/herring_func.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/observer_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/observer_type.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/solver_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/solver_type.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/state_type.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/state_type.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/observer_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/observer_type.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/solver_type.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/solver_type.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mathematica/未命名-1.nb" beforeDir="false" afterPath="$PROJECT_DIR$/../mathematica/未命名-1.nb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,7 +60,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/observer_type.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="269">
               <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
             </state>
           </provider>
@@ -118,7 +102,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="37" />
     <option name="y" value="149" />
     <option name="width" value="1240" />
@@ -212,7 +196,7 @@
       <workItem from="1559121336475" duration="3279000" />
       <workItem from="1559130035062" duration="4235000" />
       <workItem from="1559135765173" duration="326000" />
-      <workItem from="1559136271428" duration="5438000" />
+      <workItem from="1559136271428" duration="5840000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize submit">
       <created>1558778006832</created>
@@ -225,11 +209,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38550000" />
+    <option name="totallyTimeSpent" value="38952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="36" width="1922" height="1165" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.109391674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -363,7 +346,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/observer_type.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="269">
           <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
         </state>
       </provider>

@@ -5,7 +5,7 @@ from CurvePlot import CurveType, PloterType
 
 
 def main():
-    with h5.File("data.h5", "r") as inf:
+    with h5.File("current_state.h5", "r") as inf:
         Pr = inf["/group"].attrs["Prandtl_number"]
         Ra = inf["/group"].attrs["Rayleigh_number"]
         a = inf["/group"].attrs["wave_number"]
@@ -13,12 +13,12 @@ def main():
         Ny = inf["/group"].attrs["Ny"]
         l = inf["/group"].attrs["length"]
         label = r"Pr={0:.1f}, Ra={1:.0e}, a={2:.2f}".format(Pr, Ra, a)
-        x = np.linspace(0.0, 1.0, 101)
+        x = np.linspace(0.0, 1.0, 1001)
         n = np.arange(2.0, 2*(Ny+1), 2.0)
         amps = np.tile(np.asarray(
-            inf["/group/states/{0:d}".format(int(l-1))][:Ny], dtype=np.float), (len(x), 1))
+            inf["/group/states/1"][:Ny], dtype=np.float), (len(x), 1))
         xx, nn = np.meshgrid(x, n, indexing="ij")
-    y = Ra*(1-x)+np.transpose(
+    y = 1-x+np.transpose(
         np.sum(amps*np.sin(np.pi*nn*xx), axis=1))
     ploter = PloterType(title=r"Temperature Profile",
                         xlabel=r"\(y\)", ylabel=r"\(T\)")
