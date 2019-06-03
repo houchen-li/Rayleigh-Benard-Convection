@@ -32,6 +32,7 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
             dfdt.phi(j) += (j / 2) * PI_2 * a * i * sum;
         }
     }
+
     for (i = 1; i < RBCSystem::Nx + 1; i++) {
         i_2 = i * i;
         for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
@@ -47,11 +48,12 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
             dfdt.theta(i, j) -= PI_2 * a * i * sum;
         }
     }
+
     for (i = 1; i < RBCSystem::Nx + 1; i++) {
         i_2 = i * i;
         for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
             j_2 = j * j;
-            dfdt.psi(i, j) = 2.0 * PI * a * i * Pr * Ra / ((4.0 * a_2 * i_2 + j_2) * PI_2) * f.theta(i, j) -
+            dfdt.psi(i, j) = 2.0 * a * i * Pr * Ra / ((4.0 * a_2 * i_2 + j_2) * PI) * f.theta(i, j) -
                              (4.0 * a_2 * i_2 + j_2) * PI_2 * Pr * f.psi(i, j);
         }
     }
@@ -77,7 +79,7 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
         }
         for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2) {
             j_2 = j * j;
-            dfdt.psi(i, j) += PI_2 * a / 2 * f.psi(1, 1) * f.psi(i - 1, j + 1) *
+            dfdt.psi(i, j) += PI_2 * a / 2.0 * f.psi(1, 1) * f.psi(i - 1, j + 1) *
                               (1 - (8.0 * a_2 * i - 2.0 * j) / (4.0 * a_2 * i_2 + j_2)) * (i + j);
         }
     }

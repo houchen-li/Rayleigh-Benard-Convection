@@ -14,7 +14,7 @@
 
 namespace RBCSystem {
     constexpr Uint Nx = 10;
-    constexpr Uint Ny = 200;
+    constexpr Uint Ny = 20;
 
     class StateType : public boost::numeric::ublas::fixed_vector<Real, (2 * Nx + 1) * Ny> {
     public:
