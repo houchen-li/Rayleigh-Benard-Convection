@@ -49,22 +49,16 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
         }
     }
     for (i = 1; i < RBCSystem::Nx; i++) {
-        i_2 = i * i;
-        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2) {
-            j_2 = j * j;
-        }
-        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
-            j_2 = j * j;
-        }
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2)
+            dfdt.theta(i, j) -= PI_2 * a / 2.0 * (f.psi(i + 1, j + 1) * f.theta(1, 1) + f.psi(1, 1) * f.theta(i + 1, j + 1)) * (static_cast<Real>(i) - static_cast<Real>(j));
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2)
+            dfdt.theta(i, j) -= PI_2 * a / 2.0 * (f.psi(i + 1, j - 1) * f.theta(1, 1) + f.psi(1, 1) * f.theta(i + 1, j - 1)) * (i + j);
     }
     for (i = 2; i < RBCSystem::Nx + 1; i++) {
-        i_2 = i * i;
-        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
-            j_2 = j * j;
-        }
-        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2) {
-            j_2 = j * j;
-        }
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2)
+            dfdt.theta(i, j) -= PI_2 * a / 2.0 * (f.psi(i - 1, j - 1) * f.theta(1, 1) - f.psi(1, 1) * f.theta(i - 1, j - 1)) * (static_cast<Real>(i) - static_cast<Real>(j));
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2)
+            dfdt.theta(i, j) -= PI_2 * a / 2.0 * (f.psi(i - 1, j + 1) * f.theta(1, 1) - f.psi(1, 1) * f.theta(i - 1, j + 1)) * (i + j);
     }
 
     for (i = 1; i < RBCSystem::Nx + 1; i++) {

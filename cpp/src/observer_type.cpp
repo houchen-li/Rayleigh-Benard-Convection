@@ -13,9 +13,9 @@ void RBCSystem::ObserverType::startObservation(void)
     FILE *fp = fopen("Nu.dat", "w");
 
     fprintf(fp, "************************************\n");
-    fprintf(fp, "%16s\t%16lf\n", "Prandtl_number", this -> Pr);
-    fprintf(fp, "%16s\t%16lf\n", "Rayleigh_number", this -> Ra);
-    fprintf(fp, "%16s\t%16lf\n", "wave_number", this -> a);
+    fprintf(fp, "%16s\t%16.1lf\n", "Prandtl_number", this -> Pr);
+    fprintf(fp, "%16s\t%16.1lf\n", "Rayleigh_number", this -> Ra);
+    fprintf(fp, "%16s\t%16.1lf\n", "wave_number", this -> a);
     fprintf(fp, "************************************\n");
     fprintf(fp, "               t\t              Nu\n");
     fprintf(fp, "************************************\n");
@@ -35,7 +35,6 @@ void RBCSystem::ObserverType::endObservation(void)
 
 void RBCSystem::ObserverType::operator()(const RBCSystem::StateType &f, const Real &t)
 {
-    Uint j;
     Real Nu;
     FILE *fp = fopen("Nu.dat", "a");
     H5::Group grp, subgrp;
