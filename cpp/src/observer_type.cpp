@@ -12,13 +12,13 @@ void RBCSystem::ObserverType::startObservation(void)
 {
     FILE *fp = fopen("Nu.dat", "w");
 
-    fprintf(fp, "************************\n");
-    fprintf(fp, "%s\t%lf\n", "Prandtl_number", this -> Pr);
-    fprintf(fp, "%s\t%lf\n", "Rayleigh_number", this -> Ra);
-    fprintf(fp, "%s\t%lf\n", "wave_number", this -> a);
-    fprintf(fp, "************************\n");
-    fprintf(fp, "t\t\tNu\n");
-    fprintf(fp, "************************\n");
+    fprintf(fp, "************************************\n");
+    fprintf(fp, "%16s\t%16lf\n", "Prandtl_number", this -> Pr);
+    fprintf(fp, "%16s\t%16lf\n", "Rayleigh_number", this -> Ra);
+    fprintf(fp, "%16s\t%16lf\n", "wave_number", this -> a);
+    fprintf(fp, "************************************\n");
+    fprintf(fp, "               t\t              Nu\n");
+    fprintf(fp, "************************************\n");
     fclose(fp);
 
     return;
@@ -27,7 +27,7 @@ void RBCSystem::ObserverType::startObservation(void)
 void RBCSystem::ObserverType::endObservation(void)
 {
     FILE *fp = fopen("Nu.dat", "a");
-    fprintf(fp, "************************\n");
+    fprintf(fp, "************************************\n");
     fclose(fp);
 
     return;
@@ -47,7 +47,7 @@ void RBCSystem::ObserverType::operator()(const RBCSystem::StateType &f, const Re
 #endif
 
     Nu = Nuof(f);
-    fprintf(fp, "%8lf\t%8lf\n", t, Nu);
+    fprintf(fp, "%16.12lf\t%16.12lf\n", t, Nu);
     fclose(fp);
     grp = outf.createGroup("group");
     addAttr(grp, "Nx", Nx);

@@ -48,6 +48,24 @@ void func(const RBCSystem::StateType &f, RBCSystem::StateType &dfdt, const Real 
             dfdt.theta(i, j) -= PI_2 * a * i * sum;
         }
     }
+    for (i = 1; i < RBCSystem::Nx; i++) {
+        i_2 = i * i;
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2) {
+            j_2 = j * j;
+        }
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
+            j_2 = j * j;
+        }
+    }
+    for (i = 2; i < RBCSystem::Nx + 1; i++) {
+        i_2 = i * i;
+        for (j = 2 + i % 2; j < 2 * RBCSystem::Ny + 2 - i % 2; j += 2) {
+            j_2 = j * j;
+        }
+        for (j = 2 - i % 2; j < 2 * RBCSystem::Ny + i % 2; j += 2) {
+            j_2 = j * j;
+        }
+    }
 
     for (i = 1; i < RBCSystem::Nx + 1; i++) {
         i_2 = i * i;
