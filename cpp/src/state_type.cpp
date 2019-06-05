@@ -4,11 +4,11 @@
 
 #include "../include/state_type.h"
 
-RBCSystem::StateType::StateType(void): boost::numeric::ublas::fixed_vector<Real, (2*Nx+1)*Ny>() { return; }
+RBCSystem::StateType::StateType(void): boost::numeric::ublas::fixed_vector<Real, (2 * Nx + 1) * Ny>() { return; }
 
-RBCSystem::StateType::StateType(const StateType &rhs): boost::numeric::ublas::fixed_vector<Real, (2*Nx+1)*Ny>(rhs) { return; }
+RBCSystem::StateType::StateType(const StateType &rhs): boost::numeric::ublas::fixed_vector<Real, (2 * Nx + 1) * Ny>(rhs) { return; }
 
-RBCSystem::StateType & RBCSystem::StateType::operator=(const StateType &rhs) { boost::numeric::ublas::fixed_vector<Real, (2*Nx+1)*Ny>::operator=(rhs); return *this; }
+RBCSystem::StateType & RBCSystem::StateType::operator=(const StateType &rhs) { boost::numeric::ublas::fixed_vector<Real, (2 * Nx + 1) * Ny>::operator=(rhs); return *this; }
 
 RBCSystem::StateType::~StateType(void) { return; }
 
